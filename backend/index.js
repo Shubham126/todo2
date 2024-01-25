@@ -58,10 +58,11 @@ app.put('/completed', async (req, res) => {
   },{
     completed: true,
   })
-})
-res.json({
+  res.json({
     msg: "Todo marked as completed"
 })
+})
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
