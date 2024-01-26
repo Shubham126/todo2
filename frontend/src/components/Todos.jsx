@@ -6,7 +6,7 @@
    } 
    ]
 */
-export function Todos({todos}) {
+function Todos({todos}) {
 
     return <div>
         {todos.map(function(todo) {
@@ -18,3 +18,5 @@ export function Todos({todos}) {
         })}
     </div>
 }
+
+export default Todos

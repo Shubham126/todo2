@@ -38,11 +38,11 @@ const CreateTodo = () => {
             headers: {
                 "Content-type": "application/json"
             }
-        }
+        })
         .then(async function(res){
             const json = await res.json();
             alert("Todo Added");
-        }))
+        })
       }}> Add a todo </button>
     </div>
   )
