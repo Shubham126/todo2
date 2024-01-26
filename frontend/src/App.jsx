@@ -5,23 +5,18 @@ import Todos from './components/Todos'
 
 function App() {
 
+  const[todos, setTodos] = useState([])
 
+  fetch("http://localhost:3000/todos")
+  .then(async function(res){
+    const json = await res.json();
+    setTodos(json.todos);
+  })
 
   return (
     <>
      <CreateTodo />
-     <Todos todos = {[
-      {
-        title: "sfdg",
-        description: "akjshfdrg",
-        completed: false,
-      },
-      {
-        title: "Go to Gym",
-        description: "You should be going to the gym",
-        completed: false,
-      }
-     ]}/>
+     <Todos todos = {todos}/>
     </>
   )
 }
