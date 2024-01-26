@@ -1,19 +1,29 @@
-// import React from 'react'
+import { useState } from 'react'
 
 const CreateTodo = () => {
-  return (
+
     // react query 
     // this will help us get rid from document.getElementById 
+    const [title, setTitle] = useState("")
+    const[description, setDescription] = useState("")
+
+  return (
     <div>
       <input id = "title" style = {{
         padding: 10,
         margin: 10,
-      }} type = "text" placeholder='title'></input> <br />
+      }} type = "text" placeholder='title' onChange={(function(e){
+        // const value = e.target.value;
+        setTitle(e.target.value);
+      })}></input> <br />
 
       <input id = "desc" style = {{
         padding: 10,
         margin: 10,
-      }} type = "text" placeholder = "description"></input> <br />
+      }} type = "text" placeholder = "description" onChange={(function(e){
+        // const value = e.target.value;
+        setDescription(e.target.value);
+      })}></input> <br />
 
       <button style = {{
         padding: 10,
@@ -21,9 +31,12 @@ const CreateTodo = () => {
       }} onClick = {() => {
         fetch("http://localhost:3000/todos", {
             method: "POST",
-            body: {
-                title: document.getElementById("title").innerHTML,
-                description: document.getElementById("desc").innerHTML
+            body: JSON.stringify({
+                title: title,
+                description: description
+            }),
+            headers: {
+                "Content-type": "application/json"
             }
         }
         .then(async function(res){
