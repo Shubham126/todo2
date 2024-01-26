@@ -8,7 +8,18 @@ function App() {
   return (
     <>
      <CreateTodo />
-     <Todos />
+     <Todos todos = {[
+      {
+        title: "sfdg",
+        description: "akjshfdrg",
+        completed: false,
+      },
+      {
+        title: "Go to Gym",
+        description: "You should be going to the gym",
+        completed: false,
+      }
+     ]}/>
     </>
   )
 }
